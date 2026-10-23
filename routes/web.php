@@ -1,5 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\StoreFront\Products as Products;
 
-Route::view('/', 'welcome')->name('home');
+
+Route::get('/', Products\ProductsList::class)->name('home');
