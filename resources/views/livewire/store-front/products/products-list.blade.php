@@ -18,7 +18,7 @@
                     </span>
                     {{-- cart option --}}
                     @if ($product->stocks)
-                    <x-button icon="shopping-cart" tooltip="Add to cart" />
+                    <livewire:store-front.cart.add-to-cart :product="$product" />
                     @else
                     <x-badge text="Out of stocks" color="red" />
                     @endif
@@ -32,4 +32,9 @@
         <x-table :rows="$products" paginate />
         {{-- {{ $products->links() }} --}}
     </div>
+
+    <pre>
+        {{-- todo: check code, and fetch a perfect array to update products.stocks --}}
+        {{-- {{ print_r($carts = \App\Models\Cart::where('expires_at', '>', now())->get()) }} --}}
+    </pre>
 </div>

@@ -15,6 +15,8 @@
 </head>
 
 <body x-bind:class="{ 'dark bg-gray-950': darkTheme, 'bg-white': !darkTheme }">
+    <x-toast />
+    <x-dialog />
     <x-layout>
         <x-slot:header>
             <x-layout.header>
@@ -34,9 +36,7 @@
 
                 <x-slot:right>
                     <div class="mx-1">
-                        <x-button.circle icon="shopping-cart" x-data x-tooltip="Cart" route="#">
-                            <x-slot:badge>5</x-slot:badge>
-                        </x-button>
+                        <livewire:store-front.cart.cart-list />
                     </div>
                     <div class="mx-1">
                         <x-dropdown>
@@ -53,6 +53,7 @@
             </x-layout.header>
         </x-slot:header>
 
+        {{-- filter slide --}}
         <x-slide id="products-filter" title="Filter">
             <x-accordion chevron="left">
                 <x-accordion.items title="Category Filter" icon="tag" id="category-filter">

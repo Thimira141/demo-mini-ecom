@@ -25,4 +25,15 @@ class Product extends Model
         $pivot_table = new ProductCategory;
         return $this->belongsToMany(Category::class, $pivot_table->getTable());
     }
+
+    /**
+     * carts which has this product
+     * @return BelongsToMany
+     * @author Thimira Dilshan <thimirad865@gmail.com>
+     */
+    public function carts(): BelongsToMany
+    {
+        $pvTable = new CartItem;
+        return $this->belongsToMany(Cart::class, $pvTable->getTable())->withPivot('quantity')->withTimestamps();
+    }
 }

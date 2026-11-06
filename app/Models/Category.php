@@ -23,6 +23,6 @@ class Category extends Model
     public function products(): BelongsToMany
     {
         $pivot_table = new ProductCategory;
-        return $this->belongsToMany(Products::class, $pivot_table->getTable());
+        return $this->belongsToMany(Product::class, $pivot_table->getTable());
     }
 }
